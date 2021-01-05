@@ -1,0 +1,1 @@
+# The pages folder contains entire views composed of components
