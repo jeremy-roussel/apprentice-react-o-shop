@@ -14,20 +14,26 @@ function NavBar(){
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                    <a className="nav-link" href="/#">Home <span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/#">Link</a>
+                    <a className="nav-link" href="/Products">Products</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link disabled" href="/#" tabIndex="-1" aria-disabled="true">Disabled</a>
+                    <a className="nav-link" href="/Orders" >Orders</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/ShoppingCart" >Shopping Cart</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/CheckOut" >Checkout</a>
                 </li>
                 <li className={open ? "nav-item dropdown show" : "nav-item dropdown"}>
-                    <a className="nav-link dropdown-toggle" href="/#" id="dropdown01" data-toggle="dropdown"  aria-expanded={open} onClick={() => setOpen(!open)} >Dropdown</a>
+                    <span className="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"  aria-expanded={open} onClick={() => setOpen(!open)} >Admin</span>
                     <div className={open ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdown01">
-                    <a className="dropdown-item" href="/#">Action</a>
-                    <a className="dropdown-item" href="/#">Another action</a>
-                    <a className="dropdown-item" href="/#">Something else here</a>
+                    <a className="dropdown-item" href="/AdminOrders">Admin Orders</a>
+                    <a className="dropdown-item" href="/AdminProducts">Admin Products</a>
+                    <a className="dropdown-item" href="/OrderSuccess">Order Success</a>
                     </div>
                 </li>
                 </ul>
