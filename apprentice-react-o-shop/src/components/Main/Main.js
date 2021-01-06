@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
+
 import './Main.scss'
 import AdminOrders from '../../pages/AdminOrders'
 import AdminProducts from '../../pages/AdminProducts'
@@ -9,19 +10,21 @@ import Orders from '../../pages/Orders'
 import OrderSuccess from '../../pages/OrderSuccess'
 import Products from '../../pages/Products'
 import ShoppingCart from '../../pages/ShoppingCart'
+import navLinks from '../../utils/constants'
 
 function Main() {
     return (
         <div className="main">
             <Switch>
-                <Route exact path="/" component={ Home }></Route>
-                <Route exact path="/AdminOrders" component={ AdminOrders }></Route>
-                <Route exact path="/AdminProducts" component={ AdminProducts }></Route>
-                <Route exact path="/CheckOut" component={ CheckOut }></Route>
-                <Route exact path="/Orders" component={ Orders }></Route>
-                <Route exact path="/OrderSuccess" component={ OrderSuccess }></Route>
-                <Route exact path="/Products" component={ Products }></Route>
-                <Route exact path="/ShoppingCart" component={ ShoppingCart }></Route>
+                <Route exact path={navLinks.Home.link} component={ Home }/>
+                <Route exact path={navLinks.AdminOrders.link} component={ AdminOrders }/>
+                <Route exact path={navLinks.AdminProducts.link} component={ AdminProducts }/>
+                <Route exact path={navLinks.CheckOut.link} component={ CheckOut }/>
+                <Route exact path={navLinks.Orders.link} component={ Orders }/>
+                <Route exact path={navLinks.OrderSuccess.link} component={ OrderSuccess }/>
+                <Route exact path={navLinks.Products.link} component={ Products }/>
+                <Route exact path={navLinks.Products.link} component={ ShoppingCart }/>
+                <Route path='*' component={ Home }/>
             </Switch>
         </div>
     )
