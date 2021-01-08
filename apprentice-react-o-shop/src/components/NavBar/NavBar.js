@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
 
+import LinkListItem from './ListLinkItem'
+import DropDownItem from './DropDownItem'
+import navLinks from '../../utils/constants'
+
 function NavBar(){
 
-    const [open, setOpen] = useState(false)
+    const [isDropDownOpen, setisDropDownOpen] = useState(false)
+    const NavList = []
+    const DropDownList = []
+
+    for (const key in navLinks) {
+        if (navLinks[key].admin === false) {
+            NavList.push(<LinkListItem link={navLinks[key].link} text={navLinks[key].text}/>)
+        }
+        else {
+            DropDownList.push(<DropDownItem link={navLinks[key].link} text={navLinks[key].text}/>)
+        }
+    }
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
@@ -13,21 +28,11 @@ function NavBar(){
 
             <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                    <a className="nav-link" href="/#">Home <span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/#">Link</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link disabled" href="/#" tabIndex="-1" aria-disabled="true">Disabled</a>
-                </li>
-                <li className={open ? "nav-item dropdown show" : "nav-item dropdown"}>
-                    <a className="nav-link dropdown-toggle" href="/#" id="dropdown01" data-toggle="dropdown"  aria-expanded={open} onClick={() => setOpen(!open)} >Dropdown</a>
-                    <div className={open ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdown01">
-                    <a className="dropdown-item" href="/#">Action</a>
-                    <a className="dropdown-item" href="/#">Another action</a>
-                    <a className="dropdown-item" href="/#">Something else here</a>
+               {NavList}
+                <li className={isDropDownOpen ? "nav-item dropdown show" : "nav-item dropdown"}>
+                    <span className="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"  aria-expanded={isDropDownOpen} onClick={() => setisDropDownOpen(!isDropDownOpen)} >Admin</span>
+                    <div className={isDropDownOpen ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdown01">
+                    {DropDownList}
                     </div>
                 </li>
                 </ul>
