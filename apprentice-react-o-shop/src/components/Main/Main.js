@@ -14,9 +14,9 @@ import navLinks from '../../utils/constants'
 
 function Main() {
     return (
-        <div className="main">
+        <div className="main container-fluid">
             <Switch>
-                {/* <Route exact path={navLinks.Home.link} component={ Home }/> */}
+                {/* <Route exact path={navLinks.Home.link} component={ <>Hello!</> }/> */}
                 <Route exact path={navLinks.AdminOrders.link} component={ AdminOrders }/>
                 <Route exact path={navLinks.AdminProducts.link} component={ AdminProducts }/>
                 <Route exact path={navLinks.CheckOut.link} component={ CheckOut }/>
