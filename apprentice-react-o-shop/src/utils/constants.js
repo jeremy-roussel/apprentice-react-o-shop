@@ -19,6 +19,11 @@ const navLinks = {
         link: '/',
         text: 'Home',
     },
+    Logout: {
+        admin: false,
+        link: '/logout',
+        text: 'Log Out',
+    },
     Orders: {
         admin: false,
         link: '/orders',
@@ -26,7 +31,7 @@ const navLinks = {
     },
     OrderSuccess: {
         admin: true,
-        link: 'order-success',
+        link: '/order-success',
         text: 'Order Success',
     },
     Products: {
