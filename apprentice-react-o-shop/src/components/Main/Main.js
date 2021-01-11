@@ -9,7 +9,7 @@ import Orders from '../../pages/Orders'
 import OrderSuccess from '../../pages/OrderSuccess'
 import Products from '../../pages/Products'
 import ShoppingCart from '../../pages/ShoppingCart'
-import navLinks from '../../utils/constants'
+import { navLinks } from '../../utils/constants'
 
 function Main() {
     return (

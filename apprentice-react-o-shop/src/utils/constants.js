@@ -41,4 +41,35 @@ const navLinks = {
     },
 }
 
-export default navLinks;
+const formFields = {
+    Username: {
+        login: true,
+        register: true,
+        type: "text",
+        name: "username",
+        placeholder: "Username"
+    },
+    Password: {
+        login: true,
+        register: true,
+        type: "password",
+        name: "password",
+        placeholder: "Password"
+    },
+    FirstName: {
+        login: false,
+        register: true,
+        type: "text",
+        name: "firstName",
+        placeholder: "First Name"
+    },
+    LastName: {
+        login: false,
+        register: true,
+        type: "text",
+        name: "lastName",
+        placeholder: "Last Name"
+    },
+}
+
+export { navLinks, formFields };
