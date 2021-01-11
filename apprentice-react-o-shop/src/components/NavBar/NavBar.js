@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import LinkListItem from './ListLinkItem'
 import DropDownItem from './DropDownItem'
-import navLinks from '../../utils/constants'
+import { navLinks } from '../../utils/constants'
 
 function NavBar(){
 
@@ -12,10 +12,10 @@ function NavBar(){
 
     for (const key in navLinks) {
         if (navLinks[key].admin === false) {
-            NavList.push(<LinkListItem link={navLinks[key].link} text={navLinks[key].text}/>)
+            NavList.push(<LinkListItem link={navLinks[key].link} text={navLinks[key].text} key={key}/>)
         }
         else {
-            DropDownList.push(<DropDownItem link={navLinks[key].link} text={navLinks[key].text}/>)
+            DropDownList.push(<DropDownItem link={navLinks[key].link} text={navLinks[key].text} key={key}/>)
         }
     }
 
