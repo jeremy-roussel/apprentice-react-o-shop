@@ -19,6 +19,11 @@ const navLinks = {
         link: '/',
         text: 'Home',
     },
+    Logout: {
+        admin: false,
+        link: '/logout',
+        text: 'Log Out',
+    },
     Orders: {
         admin: false,
         link: '/orders',
@@ -26,7 +31,7 @@ const navLinks = {
     },
     OrderSuccess: {
         admin: true,
-        link: 'order-success',
+        link: '/order-success',
         text: 'Order Success',
     },
     Products: {
@@ -41,4 +46,32 @@ const navLinks = {
     },
 }
 
-export default navLinks;
+const formFields = [
+    {
+        login: true,
+        register: true,
+        type: "text",
+        name: "username",
+        placeholder: "Username"
+    },{
+        login: true,
+        register: true,
+        type: "password",
+        name: "password",
+        placeholder: "Password"
+    },{
+        login: false,
+        register: true,
+        type: "text",
+        name: "firstName",
+        placeholder: "First Name"
+    },{
+        login: false,
+        register: true,
+        type: "text",
+        name: "lastName",
+        placeholder: "Last Name"
+    },
+]
+
+export { navLinks, formFields };

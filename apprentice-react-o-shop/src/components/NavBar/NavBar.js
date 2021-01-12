@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import LinkListItem from './ListLinkItem'
 import DropDownItem from './DropDownItem'
-import navLinks from '../../utils/constants'
+import { navLinks } from '../../utils/constants'
 
 function NavBar(){
 

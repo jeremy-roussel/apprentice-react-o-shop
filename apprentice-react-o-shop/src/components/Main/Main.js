@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Switch } from 'react-router';
+import React from 'react'
+import { Route, Switch } from 'react-router'
 
-import './Main.scss'
+import './Main.scss';
 import AdminOrders from '../../pages/AdminOrders'
 import AdminProducts from '../../pages/AdminProducts'
 import CheckOut from '../../pages/CheckOut'
@@ -9,11 +9,11 @@ import Orders from '../../pages/Orders'
 import OrderSuccess from '../../pages/OrderSuccess'
 import Products from '../../pages/Products'
 import ShoppingCart from '../../pages/ShoppingCart'
-import navLinks from '../../utils/constants'
+import { navLinks } from '../../utils/constants'
 
 function Main() {
     return (
-        <div className="main container-fluid">
+        <div className="main container">
             <Switch>
                 <Route exact path={navLinks.AdminOrders.link} component={ AdminOrders }/>
                 <Route exact path={navLinks.AdminProducts.link} component={ AdminProducts }/>
