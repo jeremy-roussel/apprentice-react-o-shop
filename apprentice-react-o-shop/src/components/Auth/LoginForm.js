@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import InputField from '../InputField/InputField';
 import { formFields } from '../../utils/constants';
+import { loginActions } from '../../store/login/loginActions'
 
 function LoginForm() {
-    const history = useHistory();
+
+    const dispatch = useDispatch();
 
     const [loginValues, setLoginValues] = useState({
         username: '',
@@ -19,12 +22,9 @@ function LoginForm() {
     const submitLoginForm = (event) => {
         event.preventDefault();
         setloginFormSubmitted(true);
-        const loginCheck = JSON.parse(localStorage.getItem('login'))
-        if (loginCheck.user === username && loginCheck.password === password){
-            history.push('/home')
-        }
-        else {
-            history.push('/login')
+        
+        if (username && password){
+            dispatch(loginActions.login(username, password))
         }
     };
 
