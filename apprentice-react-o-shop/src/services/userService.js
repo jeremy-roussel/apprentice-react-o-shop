@@ -4,12 +4,14 @@ export const userService = {
     register,
 }
 
+const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+};
+
 function login(username, password) {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({username, password}),
-    };
+
+    requestOptions.body = JSON.stringify({username, password})
 
     return fetch('/users/authenticate', requestOptions)
         .then(handleResponse)
@@ -24,7 +26,11 @@ function logout() {
 }
 
 function register(user) {
-    //
+
+    requestOptions.body = JSON.stringify({user})
+
+    return fetch('/users/register', requestOptions)
+        .then(handleResponse)
 }
 
 function handleResponse(response) {

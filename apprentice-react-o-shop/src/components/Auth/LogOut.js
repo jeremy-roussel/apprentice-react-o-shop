@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import loginActions from '../../store/login/loginActions';
 
 const LogOut = () => {
 
-    localStorage.removeItem('user');
+  const dispatch = useDispatch();
+
+  dispatch(loginActions.logout());
 
   return (
     <>

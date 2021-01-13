@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import InputField from '../InputField/InputField';
 import { formFields } from '../../utils/constants';
-import { loginActions } from '../../store/login/loginActions'
+import loginActions from '../../store/login/loginActions'
 
 function LoginForm() {
 
