@@ -28,4 +28,4 @@ function logout() {
     return { type: loginTypes.LOGOUT};
 };
 
-export { loginActions }
+export default loginActions;

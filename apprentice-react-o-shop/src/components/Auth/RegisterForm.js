@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import InputField from '../InputField/InputField';
 import { formFields } from '../../utils/constants';
+import registerActions from '../../store/register/registerActions';
 
 function RegisterForm() {
 
-    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const error = useSelector(state => state.register.error)
+
+    const errorField = (error) ? <div>{error}</div> : <div></div>
 
     const [registerValues, setRegisterValues] = useState({
         username: '',
@@ -22,14 +28,18 @@ function RegisterForm() {
     const submitRegisterForm = (event) => {
         event.preventDefault();
         setRegisterFormSubmitted(true);
-        const login = {
-            user: username,
+
+        const user = {
+            username: username,
             password: password,
             firstName: firstName,
             lastName: lastName,
         }
-        localStorage.setItem('login', JSON.stringify(login))
-        history.push('/home')
+
+        if (username && password){
+            dispatch(registerActions.register(user))
+        }
+
     };
 
     const updateRegisterValues = (event) => {
@@ -85,6 +95,7 @@ function RegisterForm() {
                         </Link>
                     </div>
                 </form>
+                {errorField}
             </div>
         </div>
   );
