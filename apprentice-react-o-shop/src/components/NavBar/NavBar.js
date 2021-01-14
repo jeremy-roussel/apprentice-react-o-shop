@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import LinkListItem from './ListLinkItem'
 import DropDownItem from './DropDownItem'
 import { navLinks } from '../../utils/constants'
 
 function NavBar(){
+
+    const fullName = useSelector( state => state.login.user.firstName + ' ' + state.login.user.lastName );
 
     const [isDropDownOpen, setisDropDownOpen] = useState(false)
     const NavList = []
@@ -30,7 +33,7 @@ function NavBar(){
                 <ul className="navbar-nav mr-auto">
                {NavList}
                 <li className={isDropDownOpen ? "nav-item dropdown show" : "nav-item dropdown"}>
-                    <span className="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"  aria-expanded={isDropDownOpen} onClick={() => setisDropDownOpen(!isDropDownOpen)} >Admin</span>
+                    <span className="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"  aria-expanded={isDropDownOpen} onClick={() => setisDropDownOpen(!isDropDownOpen)} >{fullName}</span>
                     <div className={isDropDownOpen ? "dropdown-menu show" : "dropdown-menu"} aria-labelledby="dropdown01">
                     {DropDownList}
                     </div>
