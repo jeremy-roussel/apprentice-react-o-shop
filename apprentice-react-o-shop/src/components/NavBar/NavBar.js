@@ -14,17 +14,16 @@ function NavBar(){
     const DropDownList = []
 
     for (const key in navLinks) {
-        if (navLinks[key].admin === false) {
+        if (navLinks[key].admin === false && navLinks[key].menu === true) {
             NavList.push(<LinkListItem link={navLinks[key].link} text={navLinks[key].text} key={key}/>)
         }
-        else {
+        else if (navLinks[key].admin === true) {
             DropDownList.push(<DropDownItem link={navLinks[key].link} text={navLinks[key].text} key={key}/>)
         }
     }
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
-            <a className="navbar-brand" href="/#">Navbar</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

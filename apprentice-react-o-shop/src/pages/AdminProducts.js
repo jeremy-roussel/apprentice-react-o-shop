@@ -1,8 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function AdminProducts() {
   return (
-    <h1>AdminProducts Works!</h1>
+    <Link to="admin-products/new">
+      <button className="btn btn-primary">
+        Add Product
+      </button>
+    </Link>
   );
 }
 
